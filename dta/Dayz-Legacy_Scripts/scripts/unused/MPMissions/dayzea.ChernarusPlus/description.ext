@@ -1,0 +1,20 @@
+respawn = "BASE";
+respawndelay = 5;
+onLoadMission="DayZ: Legacy";
+OnLoadIntro = "";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+destroyDisconnected = false;
+
+// roleless missions
+scriptedPlayer = true;//???
+
+//0 = Global 1 = Side 2 = Command 3 = Group 4 = Vehicle 5 = Direct 6 = System
+disableChannels[]={2,6};
+
+class Header
+{
+ gameType = COOP;            //DM, Team, Coop, ...
+ minPlayers = 1;             //min # of players the mission supports
+ maxPlayers = 200;            //Max # of players the mission supports
+};

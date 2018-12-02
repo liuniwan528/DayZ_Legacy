@@ -1,0 +1,20 @@
+_isDemo = getnumber(configfile >> "demo") > 0;
+
+#EU
+disableUserInput true;
+
+if !(_isDemo) then {goto "EU_NODEMO"};
+	titleRsc ["SplashESRB", "PLAIN"]
+	~6
+#EU_NODEMO
+
+titleRsc ["SplashBohemia", "PLAIN"];
+~6
+titleRsc ["SplashTakeOn", "PLAIN"];
+~6
+titleRsc ["SplashCopyright", "PLAIN"];
+~6
+titleText ["", "PLAIN"];
+disableUserInput false;
+
+exit

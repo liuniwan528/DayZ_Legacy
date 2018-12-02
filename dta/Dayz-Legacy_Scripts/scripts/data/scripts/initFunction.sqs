@@ -1,0 +1,17 @@
+textlogformat ["Log: WARNING: Old waypoint system is used: %1",_this];
+
+if (!isnil "bis_fnc_init") then {goto "fncInit"};
+createcenter sidelogic;
+_groupLogic = creategroup sidelogic;
+_logicFnc = _groupLogic createunit ["FunctionsManager",[1,1,1],[],0,"none"];
+#fncInit
+
+
+@!isnil "bis_fnc_init"
+_functionName = _this select 3;
+_this = _this - [_functionName];
+
+if (typename _functionName != typename "") then {exit};
+_function = missionnamespace getvariable _functionName;
+_script = _this spawn _function;
+@scriptdone _script

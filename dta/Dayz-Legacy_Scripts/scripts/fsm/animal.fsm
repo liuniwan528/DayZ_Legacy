@@ -1,0 +1,280 @@
+/*%FSM<COMPILE "C:\Bis\fsmeditor\scriptedFSM.cfg, Ambient Agent - Main">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",-1,250,100.000000,-75.000000,250.000000,125.000000,0.000000,""};
+item1[] = {"__1",-1,250,450.000000,-75.000000,600.000000,125.000000,0.000000,""};
+item2[] = {"__2",-1,250,275.000000,-75.000000,425.000000,125.000000,0.000000,""};
+item3[] = {"Init",0,250,300.000000,-275.000000,400.000000,-225.000000,0.000000,"Init"};
+item4[] = {"Desync",4,218,300.000000,-175.000000,400.000000,-125.000000,0.000000,"Desync"};
+item5[] = {"Reset",2,250,-50.000000,-175.000000,50.000000,-125.000000,0.000000,"Reset"};
+item6[] = {"Wait",4,218,-50.000000,-275.000000,50.000000,-225.000000,0.000000,"Wait"};
+item7[] = {"Danger",4,218,475.000000,50.000000,575.000000,100.000000,1.000000,"Danger"};
+item8[] = {"Danger",2,250,475.000000,-50.000000,575.000000,0.000000,0.000000,"Danger"};
+item9[] = {"Safe",4,218,300.000000,50.000000,400.000000,100.000000,0.000000,"Safe"};
+item10[] = {"Safe",2,250,300.000000,-50.000000,400.000000,0.000000,0.000000,"Safe"};
+item11[] = {"Delay",4,218,-50.000000,175.000000,50.000000,225.000000,0.000000,"Delay"};
+item12[] = {"Continue",2,250,300.000000,175.000000,400.000000,225.000000,0.000000,"Continue"};
+item13[] = {"Formation",4,218,125.000000,50.000000,225.000000,100.000000,2.000000,"Formation"};
+item14[] = {"Formation",2,250,125.000000,-50.000000,225.000000,0.000000,0.000000,"Formation"};
+item15[] = {"Danger",4,218,-50.000000,250.000000,50.000000,300.000000,0.000000,"Danger"};
+item16[] = {"Formation",4,218,-50.000000,325.000000,50.000000,375.000000,0.000000,"Formation"};
+item17[] = {"Task_done",4,218,-50.000000,400.000000,50.000000,450.000000,0.000000,"Task done"};
+version=1;
+class LayoutItems
+{
+	class Item0
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10.000000;
+			lWidth=5;
+			lColor=16744448;
+		};
+		BgColor=16766378;
+	};
+	class Item1
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10.000000;
+			lWidth=5;
+			lColor=255;
+		};
+		BgColor=11184895;
+	};
+	class Item2
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10.000000;
+			lWidth=5;
+			lColor=65280;
+		};
+		BgColor=11206570;
+	};
+};
+link0[] = {3,4};
+link1[] = {4,5};
+link2[] = {5,6};
+link3[] = {5,11};
+link4[] = {5,15};
+link5[] = {5,16};
+link6[] = {5,17};
+link7[] = {6,5};
+link8[] = {7,8};
+link9[] = {8,4};
+link10[] = {9,10};
+link11[] = {10,4};
+link12[] = {11,12};
+link13[] = {12,7};
+link14[] = {12,9};
+link15[] = {12,13};
+link16[] = {13,14};
+link17[] = {14,4};
+link18[] = {15,12};
+link19[] = {16,12};
+link20[] = {17,12};
+globals[] = {25.000000,1,0,1,16777215,640,480,1,15,6316128,1,-192.197174,699.156250,541.178650,-399.814362,826,872,1};
+window[] = {2,-1,-1,-1,-1,906,176,1436,176,3,843};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Ambient Agent - Main";
+  class States
+  {
+    /*%FSM<STATE "Init">*/
+    class Init
+    {
+      name = "Init";
+      init = /*%FSM<STATEINIT""">*/"_id = 0;" \n "" \n "_stateDanger = 0;" \n "_state = ""wait"";" \n "" \n "//------------------------------------------------------------------------------------------------------------" \n "//--- Set unique variables from config" \n "_type = typeof _agent;" \n "_root = configFile >> ""CfgVehicles"" >> _type;" \n "" \n "_config = _root >> ""VariablesScalar"";" \n "_n = (count _config) - 1;" \n "for ""_i"" from 0 to _n do" \n "{" \n "	_entry = _config select _i;" \n "	_name = configName _entry;" \n "	_value = getNumber _entry;" \n "	_agent setVariable [_name, _value];" \n "};" \n "" \n "_config = _root >> ""VariablesString"";" \n "_n = (count _config) - 1;" \n "for ""_i"" from 0 to _n do" \n "{" \n "	_entry = _config select _i;" \n "	_name = configName _entry;" \n "	_value = getText _entry;" \n "	_agent setVariable [_name, _value];" \n "};" \n "" \n "//------------------------------------------------------------------------------------------------------------" \n "//--- Get variables" \n "/*" \n "_runDistanceMax = 100; //--- How long agent want to move" \n "_movePrefer = 0.7; //--- Probability of moving (instead of standing)" \n "_formationPrefer = 0.1; //--- Probability of joining to other agent" \n "_scareLimit = 0.2; // How many nearby agents have to be scared to switch to danger level" \n "*/" \n "" \n "" \n "" \n "//------------------------------------------------------------------------------------------------------------" \n "//--- Debug mode" \n "_debug = if !(isnil ""BIS_ambient_debug"") then {BIS_ambient_debug} else {false};" \n "_markers = [];" \n "if (_debug) then {" \n "	_id = random 999999; //--- Generate (almost) unique number" \n "	[_agent,_id] spawn {" \n "		_agent = _this select 0;;" \n "		_id =_this select 1;" \n "		//--- Triangle" \n "		_marker = createmarkerlocal [format [""bis_ambient_%1"",_id],position _agent];" \n "		_marker setmarkertypelocal ""mil_triangle"";" \n "		//--- Dot" \n "		_dmarker = createmarkerlocal [format [""bis_ambient_%1_wp"",_id],position _agent];" \n "		_dmarker setmarkertypelocal ""mil_dot"";" \n "		_dmarker setmarkercolorlocal ""colorblack"";" \n "		_dmarker setmarkersize [.5,.5];" \n "		//--- Line" \n "		_lmarker = createmarker [format [""bis_ambient_%1_line"",_id],position _agent];" \n "		_lmarker setmarkershapelocal ""rectangle"";" \n "		_lmarker setmarkerbrushlocal ""solid"";" \n "		_lmarker setmarkercolorlocal ""colorblack"";" \n "" \n "		while {alive _agent} do {" \n "			_apos = position _agent;" \n "			_bpos = expecteddestination _agent select 0;" \n "" \n "			_marker setmarkerposlocal _apos;" \n "			_marker setmarkerdirlocal direction _agent;" \n "			//_marker setmarkertextlocal (_agent getvariable ""state"");" \n "" \n "			if ([_bpos select 0,_bpos select 1] distance [0,0] > 10) then {" \n "				_dmarker setmarkerposlocal _bpos;" \n "" \n "				_difX = (_apos select 0) - (_bpos select 0) +0.1;" \n "				_difY = (_apos select 1) - (_bpos select 1) +0.1;" \n "				_lx = (_bpos select 0) + _difX / 2;" \n "				_ly = (_bpos select 1) + _difY / 2;" \n "				_dis = sqrt(_difX^2 + _difY^2);" \n "				_dir = atan (_difX / _difY);" \n "				_lmarker setmarkerposlocal [_lx,_ly];" \n "				_lmarker setmarkersizelocal [0.5,_dis/2];" \n "				_lmarker setmarkerdirlocal _dir;" \n "			} else {" \n "				_dmarker setmarkerposlocal [1,1,1];" \n "				_lmarker setmarkerposlocal [1,1,1];" \n "			};" \n "" \n "			{" \n "				_state = _agent getvariable ""state"";" \n "				_color = ""colorgreen"";" \n "				if (_state == ""danger"") then {_color = ""colorred""};" \n "				if (_state == ""formation"") then {_color = ""colorblue""};" \n "				_x setmarkercolorlocal _color;" \n "			} foreach [_marker,_dmarker,_lmarker];" \n "" \n "			sleep 0.1;" \n "		};" \n "		deletemarkerlocal _marker;" \n "	};" \n "};" \n "" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = random 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Reset">*/
+    class Reset
+    {
+      name = "Reset";
+      init = /*%FSM<STATEINIT""">*/"_stateDanger = 0;" \n "_targets = _agent nearTargets _threatMaxRadius;" \n "" \n "_stateDanger = {!((_x select 1) iskindof ""animal"")} count _targets;" \n "" \n "_animals = [];" \n "_animalsScared = [];" \n "_stateFormation = 0;" \n "_stateScared = 0;" \n " if (random 1 <= _formationPrefer) then {" \n "	{" \n "		_type = _x select 1;" \n "		_object = _x select 4;" \n "" \n "		//--- Animal" \n "		if (_type iskindof ""animal"" && !isnil {_object getvariable ""state""}) then {" \n "" \n "			//--- Same type" \n "			if (_type iskindof typeof _agent) then {" \n "" \n "				//--- Formation leader" \n "				if !((_object getvariable ""state"") in [""formation"",""wait""]) then {" \n "					_animals = _animals + [_object]" \n "				};" \n "			};" \n "" \n "			//--- Scared" \n "			if ((_object getvariable ""state"") == ""danger"") then {" \n "				_animalsScared = _animalsScared + [_object]" \n "			};" \n "		};" \n "" \n "	} foreach _targets;" \n "	_stateFormation = count _animals;" \n "	_stateScared = if (_stateFormation != 0) then {count _animalsScared / _stateFormation} else {0};" \n "};" \n "" \n "_agent setvariable [""state"",_state];" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Delay">*/
+        class Delay
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= (_delay) //--- Delay" \n ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Danger">*/
+        class Danger
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_state != ""danger"" && (_stateDanger > 0 || _stateScared > _scareLimit)) //--- Danger detected"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Formation">*/
+        class Formation
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_state != ""formation"" && _state!= ""danger"" && _stateFormation > 0) //--- Formation detected"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Task_done">*/
+        class Task_done
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_state != ""wait"" && (movetocompleted _agent || movetofailed _agent)) //--- Move task done"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= 1;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Danger">*/
+    class Danger
+    {
+      name = "Danger";
+      init = /*%FSM<STATEINIT""">*/"//--- Find place to hide" \n "_state = ""danger"";" \n "_tries = if (_debug) then {10} else {1};" \n "_movePosList = selectbestplaces [position _agent,_runDistanceMax,_expDanger,10,_tries];" \n "_moveSelect = _movePosList select (floor random (count _movePosList));" \n "_movePos =  _moveSelect select 0;" \n "_agent moveto _movePos;" \n "" \n "if (_debug) then {" \n "	{" \n "			_dmarker = createmarkerlocal [format [""xxx%1"",round random 99999],_x select 0];" \n "			_dmarker setmarkertypelocal ""mil_dot"";" \n "			_dmarker setmarkercolorlocal ""colorgreen"";" \n "			_dmarker setmarkeralphalocal 0.05;" \n "			_size = 1 + random 1;" \n "			_dmarker setmarkersizelocal [_size,_size];" \n "	} foreach _movePosList;" \n "};" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = 10 + random 10;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Safe">*/
+    class Safe
+    {
+      name = "Safe";
+      init = /*%FSM<STATEINIT""">*/"{deletemarkerlocal _x} foreach _markers;" \n "" \n "//--- Move or wait" \n "_state = ""wait"";" \n "_ran = random 1;" \n "if (_ran <= _movePrefer) then {" \n "	_state = ""move"";" \n "	_movePosList = selectbestplaces [position _agent,_runDistanceMax,_expSafe,10,1];" \n "	_movePos = (_movePosList select (floor random (count _movePosList))) select 0;" \n "	_agent moveto _movePos;" \n "};" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = 10 + random 10;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Continue">*/
+    class Continue
+    {
+      name = "Continue";
+      init = /*%FSM<STATEINIT""">*/"if (_debug) then {{deletemarkerlocal _x} foreach _markers);"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Formation">*/
+        class Formation
+        {
+          priority = 2.000000;
+          to="Formation";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_stateFormation > 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Danger">*/
+        class Danger
+        {
+          priority = 1.000000;
+          to="Danger";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_stateDanger > 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Safe">*/
+        class Safe
+        {
+          priority = 0.000000;
+          to="Safe";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_stateDanger == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Formation">*/
+    class Formation
+    {
+      name = "Formation";
+      init = /*%FSM<STATEINIT""">*/"_state = ""formation"";" \n "" \n "_formLeader = _animals select 0;" \n "_movepos = (expecteddestination _formLeader select 0);" \n "_agent moveto [(_movepos select 0)+(-5 + random 10),(_movepos select 1)+(-5 + random 10),0];" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = 10 + random 10;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Init";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/
