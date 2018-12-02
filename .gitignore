@@ -3,3 +3,4 @@
 *.cfg
 *.vars.cfg
 *.rpt
+db/*
