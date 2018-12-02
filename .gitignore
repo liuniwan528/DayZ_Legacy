@@ -1,6 +1,7 @@
 #ignore
-*.pbo
-*.cfg
-*.vars.cfg
-*.rpt
+addons/*
+config/*
+dayzea.ChernarusPlus/*
 db/*
+dta/core.pbo
+dta/scripts.pbo
