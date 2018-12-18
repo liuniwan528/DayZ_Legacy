@@ -1,5 +1,5 @@
 titleCut ["","BLACK FADED",10e10];
-//call compile preprocessFileLineNumbers "\bin\scripts\init.sqf";
+call compile preprocessFileLineNumbers "\bin\scripts\modulesdayz\init.sqf";
 
 // Assign desired values
 /*
