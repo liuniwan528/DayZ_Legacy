@@ -4,4 +4,4 @@ _logic setpos [1000,10,0];
 
 // --Persistent execution of init script
 waituntil {!isnil "BIS_MPF_InitDone"};
-_spawn = [nil, nil, "per", rEXECVM,"bin\scripts\Functions\init.sqf"] call RE;
+_spawn = [nil, nil, "per", rEXECVM,"DZ\ModulesCore\Modules\Functions\init.sqf"] call RE;
