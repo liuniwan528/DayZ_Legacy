@@ -1,3 +1,3 @@
-call compile preprocessFileLineNumbers "\bin\scripts\modulesdayz\init.sqf";
+call compile preprocessFileLineNumbers "\bin\scripts\init.sqf";
 call dbLoadPlayer;
 call init_spawnZombies;
