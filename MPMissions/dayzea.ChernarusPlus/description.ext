@@ -10,7 +10,7 @@ destroyDisconnected = false;
 scriptedPlayer = true;//???
 
 //0 = Global 1 = Side 2 = Command 3 = Group 4 = Vehicle 5 = Direct 6 = System
-disableChannels[]={2,6};
+//disableChannels[]={2,6};
 
 class Header
 {

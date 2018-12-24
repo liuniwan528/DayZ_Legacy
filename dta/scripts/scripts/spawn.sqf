@@ -1,6 +1,15 @@
 
+
+createVehicle ["Top_LeatherJacket_Black", [-95.8618,14488,0], [], 0, "COLLIDE"];
+
+//was debuging destruction, then I got carried away//////////////////
+createVehicle ["AKX", [-95.8618,14488.8,0], [], 0, "COLLIDE"];
+createVehicle ["M_AKX_drum", [-95.8618,14488.4,0], [], 0, "COLLIDE"];
+/////////////////////////////////////////////////////////////////////
+createVehicle ["CivSedanDoors_Driver", [-75.8618,14478.4,0], [], 0, "COLLIDE"];
+
 //ZOMBIE
-//createAgent ["ZombieMaleWhite", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+createAgent ["ZombieMaleWhite", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
 
 //ANIMAL
 createAgent ["Animal_GallusGallusDomesticus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
@@ -39,6 +48,8 @@ createAgent ["Animal_CervusElaphus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
 
 //Buildings
 //createVehicle ["GNT_C185U", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createVehicle ["Land_MassGrave", [-30.8618,14460,0], [], 0, "COLLIDE"];
+
 
 //vehicles
 createVehicle ["V3S_Chassis", [-50.8618,14470,0], [], 0, "CAN_COLLIDE"];

@@ -26,8 +26,7 @@ BUGs:
 This is DayZ, if it isn't broke "hold my beer".
 Most bugs will be on the scripting side, as the .exe is where I've spend the majority of my time.
 
-As for those nasty .exe bugs. 
-Thrown objects are missing all collision "including ground" except with some static objects.
+As for those nasty .exe bugs.
 After some distance in vehicles network players gear will disappear "visually".
 Persistance isn't working "saves player but won't load" as I'm moving it to be handled by the server without dependancy on MySQL/Appache,
  though once players are working world persistance "tent/barrel/car" should be as good as done,
