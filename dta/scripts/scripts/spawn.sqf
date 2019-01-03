@@ -6,44 +6,44 @@ createVehicle ["Top_LeatherJacket_Black", [-95.8618,14488,0], [], 0, "COLLIDE"];
 createVehicle ["AKX", [-95.8618,14488.8,0], [], 0, "COLLIDE"];
 createVehicle ["M_AKX_drum", [-95.8618,14488.4,0], [], 0, "COLLIDE"];
 /////////////////////////////////////////////////////////////////////
-createVehicle ["CivSedanDoors_Driver", [-75.8618,14478.4,0], [], 0, "COLLIDE"];
-
+createVehicle ["CivSedanDoors_Driver", [-70,14478.4,0], [], 0, "COLLIDE"];
+createVehicle ["CivSedanWheel", [-68,14478.4,0], [], 0, "COLLIDE"];
 //ZOMBIE
-createAgent ["ZombieMaleWhite", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["ZombieMaleWhite", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
 
 //ANIMAL
-createAgent ["Animal_GallusGallusDomesticus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CervusElaphusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_GallusGallusDomesticusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_GallusGallusDomesticusFeminam_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_GallusGallusDomesticusFeminam_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_GallusGallusDomesticusFeminam_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_LepusEuropaeus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_OvisAries", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_OvisAriesFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_OvisOrientalis", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_SusDomesticus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_SusScrofa", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_UrsusArctos", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_VulpesVulpes", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurus_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurus_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurusFeminam_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurusFeminam_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_BosTaurusFeminam_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CanisLupus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CanisLupus_Grey", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CanisLupus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapraHircus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapraHircus_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapraHircus_Black", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapraHircus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapreolusCapreolus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CapreolusCapreolusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
-createAgent ["Animal_CervusElaphus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_GallusGallusDomesticus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CervusElaphusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_GallusGallusDomesticusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_GallusGallusDomesticusFeminam_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_GallusGallusDomesticusFeminam_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_GallusGallusDomesticusFeminam_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_LepusEuropaeus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_OvisAries", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_OvisAriesFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_OvisOrientalis", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_SusDomesticus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_SusScrofa", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_UrsusArctos", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_VulpesVulpes", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurus_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurus_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurusFeminam_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurusFeminam_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_BosTaurusFeminam_Spotted", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CanisLupus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CanisLupus_Grey", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CanisLupus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapraHircus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapraHircus_Brown", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapraHircus_Black", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapraHircus_White", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapreolusCapreolus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CapreolusCapreolusFeminam", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//createAgent ["Animal_CervusElaphus", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
 
 
 //Buildings
