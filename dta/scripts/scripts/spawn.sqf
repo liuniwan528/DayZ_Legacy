@@ -1,4 +1,61 @@
+//Debug spawner
 
+//Epoch stuff
+createVehicle ["Fence", [-30.8618,14374,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Fence_BarbedWire", [-30.8618,14372,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Fence_CamoNet", [-30.8618,14370,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Fence_Lights", [-30.8618,14368,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Consumable_WoodenPlanks", [-30.8618,14366,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Consumable_MetalPlates", [-30.8618,14364,0], [], 0, "CAN_COLLIDE"];
+
+createVehicle ["Land_DZE_WoodDoor", [-30.8618,14378,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Land_DZE_LargeWoodDoor", [-30.8618,14380,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["Land_DZE_GarageWoodDoor", [-30.8618,14382,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallDoor_DZ", [-30.8618,14384,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallDoorSmall_DZ", [-30.8618,14386,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["MetalFloor_DZ", [-30.8618,14388,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodRamp_DZ", [-30.8618,14390,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallHalf_DZ", [-30.8618,14392,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWall_DZ", [-30.8618,14394,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallDoorway_DZ", [-30.8618,14396,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallSmallDoorway_DZ", [-30.8618,14398,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloor_DZ", [-30.8618,14400,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloorHalf_DZ", [-30.8618,14402,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloorQuarter_DZ", [-30.8618,14404,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWall_DZ", [-30.8618,14406,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWallDoor_DZ", [-30.8618,14408,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWallWin_DZ", [-30.8618,14410,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWall_DZ", [-30.8618,14412,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallThird_DZ", [-30.8618,14414,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallWin_DZ", [-30.8618,14416,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallDoor_DZ", [-30.8618,14418,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodStairs_DZ", [-30.8618,14420,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLadder_DZ", [-30.8618,14422,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodStairsRails_DZ", [-30.8618,14424,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodStairsSans_DZ", [-30.8618,14426,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallSmallDoorway_Preview_DZ", [-30.8628,14450,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallDoorway_Preview_DZ", [-30.8618,14430,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["MetalFloor_Preview_DZ", [-30.8618,14432,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodRamp_Preview_DZ", [-30.8618,14434,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWallHalf_Preview_DZ", [-30.8618,14436,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["CinderWall_Preview_DZ", [-30.8618,14438,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloorQuarter_Preview_DZ", [-30.8618,14440,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloorHalf_Preview_DZ", [-30.8618,14442,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWall_Preview_DZ", [-30.8618,14444,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallThird_Preview_DZ", [-30.8618,14446,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallWin_Preview_DZ", [-30.8618,14448,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodFloor_Preview_DZ", [-30.8618,14450,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodSmallWallDoor_Preview_DZ", [-30.8618,14452,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWall_Preview_DZ", [-30.8618,14454,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWallDoor_Preview_DZ", [-30.8618,14456,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLargeWallWin_Preview_DZ", [-30.8618,14458,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodStairs_Preview_DZ", [-30.8618,14460,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodStairsSans_Preview_DZ", [-30.8618,14462,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodLadder_Preview_DZ", [-30.8618,14464,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["WoodDoor_Preview_DZ", [-30.8618,14466,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["LargeWoodDoor_Preview_DZ", [-30.8618,14468,0], [], 0, "CAN_COLLIDE"];
+createVehicle ["GarageWoodDoor_Preview_DZ", [-30.8618,14470,0], [], 0, "CAN_COLLIDE"];
+//Epoch^
 
 createVehicle ["Top_LeatherJacket_Black", [-95.8618,14488,0], [], 0, "COLLIDE"];
 

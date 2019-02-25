@@ -6,4 +6,5 @@ dta/core.pbo
 dta/scripts.pbo
 *.bak
 *.pbo
-
+@DayZ_Epoch/*
+@DayZ_Epoch_Server/*

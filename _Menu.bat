@@ -31,11 +31,11 @@ start DayZLegacy.exe -generateshaders
 GOTO MENU
 
 :Static
-start DayZServer.exe -port=2302 -config=config\server.cfg -profiles=dayzea.ChernarusPlus -cfg=config\basic.cfg -name=Server
+start DayZServer.exe -port=2302 -config=config\server.cfg -profiles=dayzea.ChernarusPlus -cfg=config\basic.cfg -name=Server 
 GOTO MENU
 
 :Save
-start /d "bss3" UwAmp.exe  -profiles=dayzea.ChernarusPlus
+start /d "bss3" UwAmp.exe  -profiles=dayzea.ChernarusPlus "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
 GOTO MENU
 
 :Client
