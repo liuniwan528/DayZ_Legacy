@@ -28,13 +28,10 @@ BUGs:
 This is DayZ, if it isn't broke "hold my beer".
 Most bugs will be on the scripting side, as the .exe is where I've spend the majority of my time.
 
-
 As for those nasty .exe bugs in the order they'll likely be fixed, optimizations happen along the way.
 
 zooming with right mouse button and moving can cause throwing item.
 Getin/Getout of vehicle not playing animation on dedicated server.
- 
-When in vehicle player position isnt updated correctly, and player stays at the place of entry.
 
 vehicles have a good bit of visual bugs with wheel animations, inventory items look duplicated sometimes but aren't without persistance/reloading the server making them persistant.
 
