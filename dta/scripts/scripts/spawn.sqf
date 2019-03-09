@@ -1,12 +1,10 @@
 //Debug spawner
+//createVehicle ["Object class", [0,0,0], [], 0, "COLLIDE"];
+//createAgent ["AI class", [0,0,0], [], 0, "CAN_COLLIDE"];
+
+
 
 //Epoch stuff
-createVehicle ["Fence", [-30.8618,14374,0], [], 0, "CAN_COLLIDE"];
-createVehicle ["Fence_BarbedWire", [-30.8618,14372,0], [], 0, "CAN_COLLIDE"];
-createVehicle ["Fence_CamoNet", [-30.8618,14370,0], [], 0, "CAN_COLLIDE"];
-createVehicle ["Fence_Lights", [-30.8618,14368,0], [], 0, "CAN_COLLIDE"];
-createVehicle ["Consumable_WoodenPlanks", [-30.8618,14366,0], [], 0, "CAN_COLLIDE"];
-createVehicle ["Consumable_MetalPlates", [-30.8618,14364,0], [], 0, "CAN_COLLIDE"];
 
 createVehicle ["Land_DZE_WoodDoor", [-30.8618,14378,0], [], 0, "CAN_COLLIDE"];
 createVehicle ["Land_DZE_LargeWoodDoor", [-30.8618,14380,0], [], 0, "CAN_COLLIDE"];
