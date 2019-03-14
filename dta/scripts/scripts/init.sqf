@@ -1,7 +1,7 @@
 	//basic defines
 DZ_DEBUG = true;
 DZ_MP_CONNECT = true;
-DZ_MAX_ZOMBIES = 15;
+DZ_MAX_ZOMBIES = 1000;
 DZ_MAX_ANIMALS = 1000;
 
 execVM "\bin\scripts\shadow\textMonitor.sqf";
