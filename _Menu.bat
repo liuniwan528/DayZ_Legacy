@@ -12,7 +12,6 @@ ECHO  2 - DayZ Server
 ECHO  3 - Save System
 ECHO  4 - DayZ Client
 ECHO  5 - Kill DayZ
-ECHO  6 - Buldozer
 ECHO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ECHO Blank entry to exit.
 ECHO.
@@ -24,7 +23,6 @@ IF %M%==2 GOTO Static
 IF %M%==3 GOTO Save
 IF %M%==4 GOTO Client
 IF %M%==5 GOTO Kill
-IF %M%==6 GOTO buldozer
 
 :generateshaders
 start DayZLegacy.exe -generateshaders
@@ -45,8 +43,4 @@ GOTO MENU
 :Kill
 taskkill /f /im DayZServer.exe
 taskkill /f /im DayZLegacy.exe
-GOTO MENU
-
-:buldozer
-start DayZLegacy.exe -buldozer -cfg=config\basic.cfg -world=ChernarusPlus -profiles=dayzea.ChernarusPlus
 GOTO MENU
