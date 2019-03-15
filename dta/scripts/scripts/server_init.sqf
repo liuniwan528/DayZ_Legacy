@@ -4,8 +4,7 @@ DZ_TotalZombies = 0;
 DZ_TotalAnimals = 0;
 DZ_TotalEvents = 0;
 ////////////////////////////
-execVM "\bin\scripts\spawn.sqf"//debug
-call compile preprocessFileLineNumbers "\dz\\server\cfg\CfgLootSpawns\config.cpp";
+execVM "\bin\scripts\spawn.sqf";//debug
 importProxies;	
 spawnLoot [_position,1500,2500];
 ////////////////////////////
